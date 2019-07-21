@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uniquePassword.GeneratePage"
+             BackgroundColor="Silver">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10">
+                <Grid Margin="10,60,10,60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="0.75*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Label  HorizontalOptions="Center" VerticalOptions="Center"
+                    Text="Master password"/>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Entry x:Name="MasterPasswordEntry" IsPassword="True" 
+                       FontSize="Small" Grid.Column="0" WidthRequest="175"
+                       VerticalOptions="Start" HorizontalOptions="Start" 
+                       Placeholder="Master password goes here"
+                       Completed="EnableOrDisableGenerateButton" TextChanged="EnableOrDisableGenerateButton"/>
+                        <Switch x:Name="PasswordToggle" 
+                       Grid.Column="1"
+                       Visual="Material"
+                       IsToggled="False" Toggled="PasswordToggle_Toggled" />
+                    </Grid>
+
+                    <Label  HorizontalOptions="Center" VerticalOptions="Center"
+                    Grid.Row="1"
+                    Text="Website name"/>
+                    <Entry x:Name="WebsiteNameEntry" IsPassword="false" 
+                    FontSize="Small" Grid.Row="1" Grid.Column="1" WidthRequest="175"
+                    VerticalOptions="Start" HorizontalOptions="Start" 
+                    Placeholder="Website name goes here"
+                    Completed="EnableOrDisableGenerateButton" TextChanged="EnableOrDisableGenerateButton"/>
+                    <Label Grid.Row="2" Grid.Column="0" 
+                    Text="Length of password " />
+                    <Grid Grid.Row="2" Grid.Column="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition Width="0.2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Slider x:Name="lengthSlider"
+                        Grid.Column="0"
+                        ValueChanged="OnSliderValueChanged"
+                        Maximum="20" Minimum="8" Value="10" Scale="1"
+                        HorizontalOptions="FillAndExpand" ThumbColor="Black" MaximumTrackColor="Black" MinimumTrackColor="Green"/>
+                        <Label x:Name="lengthDisplayLabel" 
+                        Grid.Column="1" HorizontalOptions="End" FontSize="Small"/>
+                    </Grid>
+
+                    <Switch Grid.Row="3" Grid.Column="0"
+                    IsToggled="false" 
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="IncludeMixCase"
+                    />
+                    <Label Grid.Row="3" Grid.Column="1"
+                    HorizontalOptions="Start" VerticalOptions="Center"
+                    Text="Include Upper and Lower case?" />
+                    <Switch Grid.Row="4" Grid.Column="0"
+                    IsToggled="false" 
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="IncludeSpecialChar"
+                    />
+                    <Label Grid.Row="4" Grid.Column="1"
+                    HorizontalOptions="Start" VerticalOptions="Center" 
+                    Text="Include Special characters?" />
+                    <Switch Grid.Row="5" Grid.Column="0"
+                    IsToggled="false" 
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="IncludeNumeric"
+                    />
+                    <Label Grid.Row="5" Grid.Column="1"
+                    HorizontalOptions="Start" VerticalOptions="Center"
+                    Text="Include Numeric characters?" />
+                    <Button x:Name="GeneratePasswordButton"
+                    Grid.Row="6" Grid.ColumnSpan="2"
+                    Style="{StaticResource ButtonSuccess}"
+                    Text="Generate Button" Clicked="GenerateButtonClicked"
+                    IsEnabled="false"/>
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

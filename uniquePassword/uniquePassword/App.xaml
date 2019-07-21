@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uniquePassword.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#383838" ></Setter>
+                <Setter Property="FontSize" Value="Small" ></Setter>
+                <Setter Property="VerticalOptions" Value="Center" ></Setter>
+            </Style>
+            <Style x:Key="ButtonSuccess" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#51a351" ></Setter>
+                <Setter Property="TextColor" Value="#fcfcfc" ></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" ></Setter>
+                <Setter Property="Padding" Value="20,1" ></Setter>
+                <Setter Property="Visual" Value="Material" ></Setter>
+                <Setter Property="CornerRadius" Value="9" ></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
